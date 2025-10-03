@@ -64,12 +64,15 @@ dependencies {
 publishing {
     repositories {
         maven {
-            name = "nexus-arcanius"
+            name = "ArcaniusNexus"
             url = uri("https://nexus.arcanius.net/repository/maven-snapshots/")
-            credentials {
+
+            // Modern way to do auth
+            credentials(PasswordCredentials::class) {
                 username = repoUser
                 password = repoPass
             }
+
         }
     }
     publications {
@@ -78,12 +81,11 @@ publishing {
             artifactId = name
             version = project.version.toString()
 
+
             // Include shaded jar if the shadow plugin is applied
             // Not sure if ts works
             from(components["java"])
-            artifact(tasks.findByName("shadowJar")) {
-                classifier = null
-            }
+
             pom {
                 name.set("Arcanius Template")
                 description.set("A template for Arcanius plugins")
