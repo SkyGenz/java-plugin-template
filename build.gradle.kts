@@ -47,6 +47,8 @@ repositories {
     maven("https://jitpack.io/")
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://oss.sonatype.org/content/groups/public/")
+
+    // Ideally, this repo will have mirrors so we don't care about downtime of dependency repos
     maven("https://nexus.arcanius.net/repository/maven-snapshots/") {
         credentials {
             username = repoUser
