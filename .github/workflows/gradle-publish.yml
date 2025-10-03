@@ -38,13 +38,8 @@ jobs:
     - name: Build with Gradle
       run: chmod +x ./gradlew && ./gradlew buildIfPossible
 
-    # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
-    # the publishing section of your build.gradle
-    - name: Publish to GitHub Packages
-      run: ./gradlew publish
-      env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Publish to Nexus
+      run: chmod +x ./gradlew && ./gradlew publish
     - name: Create Release
       if: github.ref != 'refs/heads/master'
       uses: softprops/action-gh-release@v2
