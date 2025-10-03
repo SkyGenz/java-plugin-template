@@ -1,0 +1,6 @@
+name: Template
+version: $version
+main: com.arcanius.template.Main
+api-version: "1.20"
+author: Arcanius
+description: A simple template plugin

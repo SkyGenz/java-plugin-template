@@ -1,0 +1,12 @@
+[versions]
+shadow = "8.1.8"
+paper-api = "1.20.4-R0.1-SNAPSHOT"
+run-paper = "2.3.0"
+
+
+[libraries]
+papermc-api = { module = "io.papermc.paper:paper-api", version.ref = "paper-api" }
+
+[plugins]
+shadow = { id = "io.github.goooler.shadow", version.ref = "shadow" }
+run-paper = { id = "xyz.jpenilla.run-paper", version.ref = "run-paper" }
