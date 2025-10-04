@@ -32,15 +32,8 @@ fun getVersionMeta(includeHash: Boolean): String {
     return "$commitHash-SNAPSHOT"
 }
 
-// Not the kotlin way, but works for now
-var repoUser = properties["arcanius_nexus_username"]?.toString()
-var repoPass = properties["arcanius_nexus_password"]?.toString()
-if (System.getenv("ARCANIUS_NEXUS_USERNAME") != null) {
-    repoUser = System.getenv("ARCANIUS_NEXUS_USERNAME")
-}
-if (System.getenv("ARCANIUS_NEXUS_PASSWORD") != null) {
-    repoPass = System.getenv("ARCANIUS_NEXUS_PASSWORD")
-}
+val repoUser = System.getenv("ARCANIUS_NEXUS_USERNAME") ?: properties["arcanius_nexus_username"]?.toString()
+val repoPass = System.getenv("ARCANIUS_NEXUS_PASSWORD") ?: properties["arcanius_nexus_password"]?.toString()
 
 
 repositories {
