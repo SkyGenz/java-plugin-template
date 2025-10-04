@@ -39,7 +39,7 @@ jobs:
       run: chmod +x ./gradlew && ./gradlew buildIfPossible
 
     - name: Publish to Nexus
-      run: chmod +x ./gradlew && ./gradlew publish
+      run: chmod +x ./gradlew && ./gradlew publishAllPublicationsToArcaniusNexusRepository
     - name: Create Release
       if: github.ref != 'refs/heads/master'
       uses: softprops/action-gh-release@v2
