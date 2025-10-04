@@ -40,6 +40,10 @@ jobs:
 
     - name: Publish to Nexus
       run: chmod +x ./gradlew && ./gradlew publish
+      env:
+        ARCANIUS_NEXUS_USERNAME: ${{ secrets.ARCANIUS_NEXUS_USERNAME}}
+        ARCANIUS_NEXUS_PASSWORD: ${{ secrets.ARCANIUS_NEXUS_PASSWORD}}
+
     - name: Create Release
       if: github.ref != 'refs/heads/master'
       uses: softprops/action-gh-release@v2
